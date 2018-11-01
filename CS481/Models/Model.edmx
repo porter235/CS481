@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="db5a2eb9b6e7614a45b937a98b012d7edbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="blogID" />
+          </Key>
+          <Property Name="blogID" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="30" />
+          <Property Name="content" Type="varchar" MaxLength="500" />
+          <Property Name="timeCreate" Type="datetime" />
+          <Property Name="lastMod" Type="datetime" />
+          <Property Name="userID" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="ForumComment">
+          <Key>
+            <PropertyRef Name="commentID" />
+          </Key>
+          <Property Name="commentID" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="content" Type="varchar" MaxLength="500" />
+          <Property Name="timeCreate" Type="datetime" />
+          <Property Name="score" Type="varchar" MaxLength="10" />
+          <Property Name="userID" Type="varchar" MaxLength="5" />
+          <Property Name="postID" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="ForumPost">
+          <Key>
+            <PropertyRef Name="postID" />
+          </Key>
+          <Property Name="postID" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="30" />
+          <Property Name="content" Type="varchar" MaxLength="500" />
+          <Property Name="timeCreate" Type="datetime" />
+          <Property Name="score" Type="varchar" MaxLength="10" />
+          <Property Name="userID" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="fName" Type="varchar" MaxLength="10" />
+          <Property Name="lName" Type="varchar" MaxLength="15" />
+          <Property Name="email" Type="varchar" MaxLength="30" />
+          <Property Name="password" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <Association Name="FK__Blog__userID__0519C6AF">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Blog" Type="Self.Blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Blog">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ForumComm__postI__0EA330E9">
+          <End Role="ForumPost" Type="Self.ForumPost" Multiplicity="0..1" />
+          <End Role="ForumComment" Type="Self.ForumComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ForumPost">
+              <PropertyRef Name="postID" />
+            </Principal>
+            <Dependent Role="ForumComment">
+              <PropertyRef Name="postID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ForumPost__userI__09DE7BCC">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="ForumPost" Type="Self.ForumPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="ForumPost">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db5a2eb9b6e7614a45b937a98b012d7edbModelStoreContainer">
+          <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ForumComment" EntityType="Self.ForumComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ForumPost" EntityType="Self.ForumPost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Blog__userID__0519C6AF" Association="Self.FK__Blog__userID__0519C6AF">
+            <End Role="User" EntitySet="User" />
+            <End Role="Blog" EntitySet="Blog" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ForumComm__postI__0EA330E9" Association="Self.FK__ForumComm__postI__0EA330E9">
+            <End Role="ForumPost" EntitySet="ForumPost" />
+            <End Role="ForumComment" EntitySet="ForumComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ForumPost__userI__09DE7BCC" Association="Self.FK__ForumPost__userI__09DE7BCC">
+            <End Role="User" EntitySet="User" />
+            <End Role="ForumPost" EntitySet="ForumPost" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db5a2eb9b6e7614a45b937a98b012d7edbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="blogID" />
+          </Key>
+          <Property Name="blogID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="content" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="timeCreate" Type="DateTime" Precision="3" />
+          <Property Name="lastMod" Type="DateTime" Precision="3" />
+          <Property Name="userID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Blog__userID__0519C6AF" FromRole="Blog" ToRole="User" />
+        </EntityType>
+        <EntityType Name="ForumComment">
+          <Key>
+            <PropertyRef Name="commentID" />
+          </Key>
+          <Property Name="commentID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="content" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="timeCreate" Type="DateTime" Precision="3" />
+          <Property Name="score" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="userID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="postID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ForumPost" Relationship="Self.FK__ForumComm__postI__0EA330E9" FromRole="ForumComment" ToRole="ForumPost" />
+        </EntityType>
+        <EntityType Name="ForumPost">
+          <Key>
+            <PropertyRef Name="postID" />
+          </Key>
+          <Property Name="postID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="content" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="timeCreate" Type="DateTime" Precision="3" />
+          <Property Name="score" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="userID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ForumComments" Relationship="Self.FK__ForumComm__postI__0EA330E9" FromRole="ForumPost" ToRole="ForumComment" />
+          <NavigationProperty Name="User" Relationship="Self.FK__ForumPost__userI__09DE7BCC" FromRole="ForumPost" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="lName" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Blogs" Relationship="Self.FK__Blog__userID__0519C6AF" FromRole="User" ToRole="Blog" />
+          <NavigationProperty Name="ForumPosts" Relationship="Self.FK__ForumPost__userI__09DE7BCC" FromRole="User" ToRole="ForumPost" />
+        </EntityType>
+        <Association Name="FK__Blog__userID__0519C6AF">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Blog" Type="Self.Blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Blog">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ForumComm__postI__0EA330E9">
+          <End Role="ForumPost" Type="Self.ForumPost" Multiplicity="0..1" />
+          <End Role="ForumComment" Type="Self.ForumComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ForumPost">
+              <PropertyRef Name="postID" />
+            </Principal>
+            <Dependent Role="ForumComment">
+              <PropertyRef Name="postID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ForumPost__userI__09DE7BCC">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="ForumPost" Type="Self.ForumPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="ForumPost">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db5a2eb9b6e7614a45b937a98b012d7edbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Blogs" EntityType="Self.Blog" />
+          <EntitySet Name="ForumComments" EntityType="Self.ForumComment" />
+          <EntitySet Name="ForumPosts" EntityType="Self.ForumPost" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__Blog__userID__0519C6AF" Association="Self.FK__Blog__userID__0519C6AF">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Blog" EntitySet="Blogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ForumComm__postI__0EA330E9" Association="Self.FK__ForumComm__postI__0EA330E9">
+            <End Role="ForumPost" EntitySet="ForumPosts" />
+            <End Role="ForumComment" EntitySet="ForumComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ForumPost__userI__09DE7BCC" Association="Self.FK__ForumPost__userI__09DE7BCC">
+            <End Role="User" EntitySet="Users" />
+            <End Role="ForumPost" EntitySet="ForumPosts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db5a2eb9b6e7614a45b937a98b012d7edbModelStoreContainer" CdmEntityContainer="db5a2eb9b6e7614a45b937a98b012d7edbEntities">
+          <EntitySetMapping Name="Blogs">
+            <EntityTypeMapping TypeName="db5a2eb9b6e7614a45b937a98b012d7edbModel.Blog">
+              <MappingFragment StoreEntitySet="Blog">
+                <ScalarProperty Name="blogID" ColumnName="blogID" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="timeCreate" ColumnName="timeCreate" />
+                <ScalarProperty Name="lastMod" ColumnName="lastMod" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ForumComments">
+            <EntityTypeMapping TypeName="db5a2eb9b6e7614a45b937a98b012d7edbModel.ForumComment">
+              <MappingFragment StoreEntitySet="ForumComment">
+                <ScalarProperty Name="commentID" ColumnName="commentID" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="timeCreate" ColumnName="timeCreate" />
+                <ScalarProperty Name="score" ColumnName="score" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="postID" ColumnName="postID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ForumPosts">
+            <EntityTypeMapping TypeName="db5a2eb9b6e7614a45b937a98b012d7edbModel.ForumPost">
+              <MappingFragment StoreEntitySet="ForumPost">
+                <ScalarProperty Name="postID" ColumnName="postID" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="timeCreate" ColumnName="timeCreate" />
+                <ScalarProperty Name="score" ColumnName="score" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="db5a2eb9b6e7614a45b937a98b012d7edbModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="fName" ColumnName="fName" />
+                <ScalarProperty Name="lName" ColumnName="lName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
