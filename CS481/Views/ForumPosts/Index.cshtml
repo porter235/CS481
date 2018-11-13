@@ -11,6 +11,7 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 @*<div>
+<<<<<<< HEAD
         @Html.DisplayNameFor(model => model.title)
 
         @Html.DisplayNameFor(model => model.content)
@@ -51,6 +52,44 @@
                     @Html.ActionLink("Details", "Details", new { id = item.postID })
                 </h2>
             </div>
+=======
+    @Html.DisplayNameFor(model => model.title)
+
+    @Html.DisplayNameFor(model => model.content)
+
+    @Html.DisplayNameFor(model => model.timeCreate)
+
+    @Html.DisplayNameFor(model => model.score)
+
+    @Html.DisplayNameFor(model => model.User.fName)
+</div>*@
+
+@foreach (var item in Model) {
+<div class="container">
+
+    <hr />
+    <div class="col-md-9">
+        <div class="col-md-1">
+            <aside>
+                <button type="button">
+                    <span class="glyphicon glyphicon-arrow-up"></span>
+                </button>
+
+                @Html.DisplayFor(modelItem => item.score)
+
+                <button type="button">
+                    <span class="glyphicon glyphicon-arrow-down"></span>
+                </button>
+
+            </aside>
+        </div>
+
+        <div class="col-md-5">
+            <h2>
+                @Html.DisplayFor(modelItem => item.title)
+            </h2>
+        </div>
+>>>>>>> 7f715b38271779f8d582ed55a54364316c6ae43b
         </div>
         @*@Html.DisplayFor(modelItem => item.content)*@
 
@@ -58,9 +97,18 @@
 
         @*@Html.DisplayFor(modelItem => item.User.fName)*@
 
+<<<<<<< HEAD
         @*@Html.ActionLink("Edit", "Edit", new { id = item.postID })
             @Html.ActionLink("Delete", "Delete", new { id = item.postID })*@
     </div>
 }
 
 
+=======
+        @*@Html.ActionLink("Edit", "Edit", new { id = item.postID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.postID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.postID })*@
+    </div>
+    }
+
+>>>>>>> 7f715b38271779f8d582ed55a54364316c6ae43b
