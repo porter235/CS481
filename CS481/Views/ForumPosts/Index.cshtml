@@ -4,54 +4,63 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<br />
+<br />
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.content)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.timeCreate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.score)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User.fName)
-        </th>
-        <th></th>
-    </tr>
+@*<div>
+        @Html.DisplayNameFor(model => model.title)
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.content)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.timeCreate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.score)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.User.fName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.postID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.postID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.postID })
-        </td>
-    </tr>
+        @Html.DisplayNameFor(model => model.content)
+
+        @Html.DisplayNameFor(model => model.timeCreate)
+
+        @Html.DisplayNameFor(model => model.score)
+
+        @Html.DisplayNameFor(model => model.User.fName)
+    </div>*@
+
+@foreach (var item in Model)
+{
+    <div class="container">
+
+        <hr />
+        <div class="col-md-9">
+            <div class="col-md-1">
+                <aside>
+                    <button type="button">
+                        <span class="glyphicon glyphicon-arrow-up"></span>
+                    </button>
+
+                    @Html.DisplayFor(modelItem => item.score)
+                    
+
+                    <button type="button">
+                        <span class="glyphicon glyphicon-arrow-down"></span>
+                    </button>
+
+                </aside>
+
+            </div>
+
+            <div class="col-md-5">
+                <h2>
+                    @Html.DisplayFor(modelItem => item.title)
+                    @Html.ActionLink("Details", "Details", new { id = item.postID })
+                </h2>
+            </div>
+        </div>
+        @*@Html.DisplayFor(modelItem => item.content)*@
+
+        @Html.DisplayFor(modelItem => item.timeCreate)
+
+        @*@Html.DisplayFor(modelItem => item.User.fName)*@
+
+        @*@Html.ActionLink("Edit", "Edit", new { id = item.postID })
+            @Html.ActionLink("Delete", "Delete", new { id = item.postID })*@
+    </div>
 }
 
-</table>
+

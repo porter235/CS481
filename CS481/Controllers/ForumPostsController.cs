@@ -33,6 +33,7 @@ namespace CS481.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ID = id;
             return View(forumPost);
         }
 

@@ -1,0 +1,90 @@
+﻿@model IEnumerable<CS481.Models.ForumComment>
+
+@{
+    ViewBag.Title = "Details";
+}
+<h2>Details</h2>
+@ViewBag.ID
+
+@foreach (var item in Model)
+{
+
+        <div class="container">
+
+            <hr />
+            <div class="col-md-9">
+                <div class="col-md-1">
+                    <aside>
+                        <button type="button">
+                            <span class="glyphicon glyphicon-arrow-up"></span>
+                        </button>
+
+                        @Html.DisplayFor(modelItem => item.score)
+
+
+                        <button type="button">
+                            <span class="glyphicon glyphicon-arrow-down"></span>
+                        </button>
+
+                    </aside>
+
+                </div>
+
+                <div class="col-md-5">
+                    <h2>
+                        @Html.DisplayFor(modelItem => item.content)
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+}
+@*<div>
+        <h4>ForumComment</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.content)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.content)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.timeCreate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.timeCreate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.score)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.score)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.userID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.userID)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ForumPost.title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ForumPost.title)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@
