@@ -10,120 +10,50 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-@*<div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-        @Html.DisplayNameFor(model => model.title)
+        @foreach (var item in Model)
+        {
+            <div class="container">
 
-        @Html.DisplayNameFor(model => model.content)
+                <hr />
+                <div class="col-md-9">
+                    <div class="col-md-1">
+                        <aside>
+                            <button type="button">
+                                <span class="glyphicon glyphicon-arrow-up"></span>
+                            </button>
 
-        @Html.DisplayNameFor(model => model.timeCreate)
+                            @Html.DisplayFor(modelItem => item.score)
 
-        @Html.DisplayNameFor(model => model.score)
+                            <button type="button">
+                                <span class="glyphicon glyphicon-arrow-down"></span>
+                            </button>
 
-        @Html.DisplayNameFor(model => model.User.fName)
-    </div>*@
+                        </aside>
+                    </div>
 
-@foreach (var item in Model)
-{
-    <div class="container">
+                    <div class="col-md-5">
+                        <h2>
+                            @Html.DisplayFor(modelItem => item.title)
+                        </h2>
 
-        <hr />
-        <div class="col-md-9">
-            <div class="col-md-1">
-                <aside>
-                    <button type="button">
-                        <span class="glyphicon glyphicon-arrow-up"></span>
-                    </button>
+                        @Html.ActionLink("Details", "Details", new { id = item.postID })
 
-                    @Html.DisplayFor(modelItem => item.score)
-                    
+                    </div>
 
-                    <button type="button">
-                        <span class="glyphicon glyphicon-arrow-down"></span>
-                    </button>
+                </div>
+                @*@Html.DisplayFor(modelItem => item.content)*@
 
-                </aside>
+                <br />
+                
+                @Html.DisplayFor(modelItem => item.timeCreate)
 
+                @*@Html.DisplayFor(modelItem => item.User.fName)*@
+
+
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.postID })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.postID })*@
             </div>
+        }
 
-            <div class="col-md-5">
-                <h2>
-                    @Html.DisplayFor(modelItem => item.title)
-                    @Html.ActionLink("Details", "Details", new { id = item.postID })
-                </h2>
-            </div>
-=======
-=======
->>>>>>> 7f715b38271779f8d582ed55a54364316c6ae43b
-    @Html.DisplayNameFor(model => model.title)
-
-    @Html.DisplayNameFor(model => model.content)
-
-    @Html.DisplayNameFor(model => model.timeCreate)
-
-    @Html.DisplayNameFor(model => model.score)
-
-    @Html.DisplayNameFor(model => model.User.fName)
-</div>*@
-
-@foreach (var item in Model) {
-<div class="container">
-
-    <hr />
-    <div class="col-md-9">
-        <div class="col-md-1">
-            <aside>
-                <button type="button">
-                    <span class="glyphicon glyphicon-arrow-up"></span>
-                </button>
-
-                @Html.DisplayFor(modelItem => item.score)
-
-                <button type="button">
-                    <span class="glyphicon glyphicon-arrow-down"></span>
-                </button>
-
-            </aside>
-        </div>
-
-        <div class="col-md-5">
-            <h2>
-                @Html.DisplayFor(modelItem => item.title)
-            </h2>
-        </div>
-<<<<<<< HEAD
->>>>>>> 7f715b38271779f8d582ed55a54364316c6ae43b
-=======
->>>>>>> 7f715b38271779f8d582ed55a54364316c6ae43b
-        </div>
-        @*@Html.DisplayFor(modelItem => item.content)*@
-
-        @Html.DisplayFor(modelItem => item.timeCreate)
-
-        @*@Html.DisplayFor(modelItem => item.User.fName)*@
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-        @*@Html.ActionLink("Edit", "Edit", new { id = item.postID })
-            @Html.ActionLink("Delete", "Delete", new { id = item.postID })*@
-    </div>
-}
-
-
-=======
         @*@Html.ActionLink("Edit", "Edit", new { id = item.postID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.postID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.postID })*@
-    </div>
-    }
-
->>>>>>> 7f715b38271779f8d582ed55a54364316c6ae43b
-=======
-        @*@Html.ActionLink("Edit", "Edit", new { id = item.postID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.postID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.postID })*@
-    </div>
-    }
-
->>>>>>> 7f715b38271779f8d582ed55a54364316c6ae43b
+          @Html.ActionLink("Delete", "Delete", new { id = item.postID })*@
