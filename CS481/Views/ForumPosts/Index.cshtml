@@ -10,50 +10,25 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-        @foreach (var item in Model)
-        {
-            <div class="container">
+@foreach (var item in Model)
+{
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header">@Html.DisplayFor(modelItem => item.score)</div>
+        <div class="card-body">
+            <h4 class="card-title">@Html.DisplayFor(modelItem => item.title)</h4>
+            <p class="card-text">@Html.DisplayFor(modelItem => item.content)</p>
+            @Html.ActionLink("Comments", "Details", new { id = item.postID })
+            @Html.DisplayFor(modelItem => item.timeCreate)
+        </div>
+    </div>
+        
 
-                <hr />
-                <div class="col-md-9">
-                    <div class="col-md-1">
-                        <aside>
-                            <button type="button">
-                                <span class="glyphicon glyphicon-arrow-up"></span>
-                            </button>
-
-                            @Html.DisplayFor(modelItem => item.score)
-
-                            <button type="button">
-                                <span class="glyphicon glyphicon-arrow-down"></span>
-                            </button>
-
-                        </aside>
-                    </div>
-
-                    <div class="col-md-5">
-                        <h2>
-                            @Html.DisplayFor(modelItem => item.title)
-                        </h2>
-
-                        @Html.ActionLink("Details", "Details", new { id = item.postID })
-
-                    </div>
-
-                </div>
-                @*@Html.DisplayFor(modelItem => item.content)*@
-
-                <br />
-                
-                @Html.DisplayFor(modelItem => item.timeCreate)
-
-                @*@Html.DisplayFor(modelItem => item.User.fName)*@
+        @*@Html.DisplayFor(modelItem => item.User.fName)*@
 
 
-                @*@Html.ActionLink("Edit", "Edit", new { id = item.postID })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.postID })*@
-            </div>
-        }
+        @*@Html.ActionLink("Edit", "Edit", new { id = item.postID })
+            @Html.ActionLink("Delete", "Delete", new { id = item.postID })*@
+}
 
-        @*@Html.ActionLink("Edit", "Edit", new { id = item.postID }) |
-          @Html.ActionLink("Delete", "Delete", new { id = item.postID })*@
+@*@Html.ActionLink("Edit", "Edit", new { id = item.postID }) |
+    @Html.ActionLink("Delete", "Delete", new { id = item.postID })*@
