@@ -15,8 +15,9 @@ namespace CS481.Controllers
         private db5a2eb9b6e7614a45b937a98b012d7edbEntities db = new db5a2eb9b6e7614a45b937a98b012d7edbEntities();
 
         // GET: ForumComments
-        public ActionResult Index()
+        public ActionResult Index(string id)
         {
+            ViewBag.id = id;
             var forumComments = db.ForumComments.Include(f => f.ForumPost);
             return View(forumComments.ToList());
         }

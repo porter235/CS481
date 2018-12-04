@@ -30,6 +30,7 @@
     </tr>
 
 @foreach (var item in Model) {
+    if (ViewBag.id == item.postID) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.content)
@@ -47,11 +48,12 @@
             @Html.DisplayFor(modelItem => item.ForumPost.title)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.commentID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.commentID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.commentID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.commentID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.commentID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.commentID })
         </td>
     </tr>
-}
+        }
+    }
 
 </table>
