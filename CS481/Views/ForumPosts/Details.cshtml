@@ -5,12 +5,14 @@
 @{
     ViewBag.Title = "Details";
 }
-<div>
-    @{
-        Html.RenderPartial("_ForumComments", new List<CS481.Models.ForumComment>());
-    }
-
-</div>
+<body>
+    <div>
+        @{
+            Html.RenderPartial("_ForumComments", new List<CS481.Models.ForumComment>());
+        }
+        @*Html.RenderPartial("_ForumComments", new List<CS481.Models.ForumComment>());*@
+    </div>
+</body>
 <p>
     @Html.ActionLink("Back to List", "Index")
 </p>
