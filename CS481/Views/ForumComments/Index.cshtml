@@ -4,13 +4,14 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<br />
+<br />
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
+@*<table class="table">*@
+    @*<tr>
         <th>
             @Html.DisplayNameFor(model => model.content)
         </th>
@@ -27,11 +28,19 @@
             @Html.DisplayNameFor(model => model.ForumPost.title)
         </th>
         <th></th>
-    </tr>
+    </tr>*@
 
 @foreach (var item in Model) {
     if (ViewBag.id == item.postID) {
-    <tr>
+        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+            <div class="card-body">
+                <h4 class="card-title">@Html.DisplayFor(modelItem => item.ForumPost.title)</h4>
+                <p class="card-text">@Html.DisplayFor(modelItem => item.content)</p>
+                <br />
+                @Html.DisplayFor(modelItem => item.timeCreate)
+            </div>
+        </div>
+    @*<tr>
         <td>
             @Html.DisplayFor(modelItem => item.content)
         </td>
@@ -46,14 +55,14 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ForumPost.title)
-        </td>
-        <td>
+        </td>*@
+        @*<td>
             @Html.ActionLink("Edit", "Edit", new { id = item.commentID }) |
             @Html.ActionLink("Details", "Details", new { id = item.commentID }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.commentID })
-        </td>
-    </tr>
+        </td>*@
+    //</tr>
         }
     }
 
-</table>
+@*</table>*@
