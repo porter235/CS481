@@ -2,14 +2,57 @@
     ViewBag.Title = "Home Page";
 }
 
+<head>
+    <style>
+        #look-good {
+            position: absolute;
+            left: 22.5%;
+            top: 25%;
+            border: 1px solid #ccc;
+            padding: 10px 10px;
+        }
+    </style>
+</head>
+
 <br />
-<h1>@ViewBag.result.name</h1>
-<h2>@ViewBag.result.weather[0].description</h2>
-<h3>Temp: @ViewBag.result.wind.deg F</h3>
+<br />
+
+<div id="look-good">
+    <table border="0">
+        <tr>
+            <td align="center">
+                <h1>@ViewBag.result.name</h1>
+                <h2>@ViewBag.result.weather[0].description</h2>
+                <h3>Temp: @ViewBag.result.wind.deg °F</h3>
+            </td>
+        </tr>
+        <tr><td align="center"><hr /></td></tr>
+        <tr>
+            <td align="center">
+                <h1>Moon Phase: @ViewBag.moon.moonPhase</h1>
+                <h2>Sun Rise: @ViewBag.moon.sunRise | Sun Set: @ViewBag.moon.sunSet</h2>
+            </td>
+        </tr>
+        <tr><td align="center"><hr /></td></tr>
+        <tr>
+            <td align="center"><h1>@Html.ActionLink("Forum", "../ForumPosts/Index")</h1></td>
+        </tr>
+        <tr><td align="center"><hr /></td></tr>
+        <tr>
+            <td align="center"><h1>@Html.ActionLink("Blog", "../Blogs/Index")</h1></td>
+        </tr>
+    </table>
+</div>
 
 
-@* Sun/Moon stuff *@
+@*<br />
+    <h1>@ViewBag.result.name</h1>
+    <h2>@ViewBag.result.weather[0].description</h2>
+    <h3>Temp: @ViewBag.result.wind.deg F</h3>
 
-<hr />
-<h1>Moon Phase: @ViewBag.moon.moonPhase</h1>
-<h2>Sun Rise: @ViewBag.moon.sunRise | Sun Set: @ViewBag.moon.sunSet</h2>
+
+     Sun/Moon stuff
+
+    <hr />
+    <h1>Moon Phase: @ViewBag.moon.moonPhase</h1>
+    <h2>Sun Rise: @ViewBag.moon.sunRise | Sun Set: @ViewBag.moon.sunSet</h2>*@

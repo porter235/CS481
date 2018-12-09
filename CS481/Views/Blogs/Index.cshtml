@@ -4,12 +4,31 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<br/ >
+<br />
+
+<h2>Blogs</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+
+@foreach (var item in Model)
+{
+    <h2></h2>
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+        <div class="card-body">
+            <h4 class="card-title">@Html.DisplayFor(modelItem => item.title)</h4>
+            <p class="card-text">Posted By: @Html.DisplayFor(modelItem => item.User.fName) @Html.DisplayFor(modelItem => item.User.lName)</p>
+            <p class="card-text">@Html.DisplayFor(modelItem => item.content)</p>
+            <br />
+            Last Modified:  @Html.DisplayFor(modelItem => item.lastMod)
+            @Html.DisplayFor(modelItem => item.timeCreate)
+        </div>
+    </div>
+}
+
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.title)
@@ -54,4 +73,4 @@
     </tr>
 }
 
-</table>
+</table>*@
