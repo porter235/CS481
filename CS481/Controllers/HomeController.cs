@@ -21,9 +21,12 @@ namespace CS481.Controllers
 
             System.Diagnostics.Debug.WriteLine(rawWeather);
             ViewBag.result = rawWeather;
+            int temp = (ViewBag.result.main.temp - 273) * (9 / 5) + 32;
+            System.Diagnostics.Debug.WriteLine(temp);
+            ViewBag.temp = temp;
             
 
-            var response2 = client.GetAsync("https://api.solunar.org/solunar/38.4192,82.4452," + DateTime.Now.ToString("yyyyMMdd") + ",-5").Result;
+            var response2 = client.GetAsync("https://api.solunar.org/solunar/38.4192,82.4452," + DateTime.Now.ToString("yyyyMMdd") + ",6").Result;
             var data2 = response2.Content.ReadAsStringAsync();
             var rawMoon = JsonConvert.DeserializeObject(data2.Result);
             System.Diagnostics.Debug.WriteLine(rawMoon);

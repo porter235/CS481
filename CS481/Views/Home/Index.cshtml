@@ -1,7 +1,6 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
 <head>
     <style>
         #look-good {
@@ -23,7 +22,7 @@
             <td align="center">
                 <h1>@ViewBag.result.name</h1>
                 <h2>@ViewBag.result.weather[0].description</h2>
-                <h3>Temp: @ViewBag.result.wind.deg °F</h3>
+                <h3>Temp: @ViewBag.temp °F</h3>
             </td>
         </tr>
         <tr><td align="center"><hr /></td></tr>
@@ -43,7 +42,6 @@
         </tr>
     </table>
 </div>
-
 
 @*<br />
     <h1>@ViewBag.result.name</h1>
