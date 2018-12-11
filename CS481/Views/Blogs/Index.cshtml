@@ -1,57 +1,127 @@
 ﻿@model IEnumerable<CS481.Models.Blog>
 
 @{
-    ViewBag.Title = "Index";
+                /**/
+
+                ViewBag.Title = "Index";
+}
+<style>
+/* Popup container - can be anything you want */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
+/* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+
+</style>
+<script>
+    // When the user clicks on div, open the popup
+    function myFunction() {
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
+    }
+</script>
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.content)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.timeCreate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.lastMod)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User.fName)
-        </th>
-        <th></th>
-    </tr>
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.timeCreate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lastMod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User.fName)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.content)
-        </td>
-        <td>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.timeCreate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastMod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.fName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.blogID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.blogID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.blogID })
+            </td>
+        </tr>
+    }</table>*@
+
+@foreach (var item in Model)
+{
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header">@Html.DisplayFor(modelItem => item.title)
+        @Html.ActionLink("Details", "Details", new {id= item.blogID})
+        </div>
+        <div class="card-body">
+           -- @Html.DisplayFor(modelItem=>item.User.fName) 
             @Html.DisplayFor(modelItem => item.timeCreate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.lastMod)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.User.fName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.blogID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.blogID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.blogID })
-        </td>
-    </tr>
+        </div>
+    </div>
 }
+    
 
-</table>

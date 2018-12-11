@@ -3,56 +3,94 @@
 @{
     ViewBag.Title = "Details";
 }
-
+<head>
+    <style>
+        #look-good {
+            position: absolute;
+            left: 22.5%;
+            top: 25%;
+            border: 1px solid #ccc;
+            padding: 10px 10px;
+        }
+    </style>
+</head>
 <h2>Details</h2>
 
 <div>
     <h4>Blog</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.title)
-        </dt>
+    @*<dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.title)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.title)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.title)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.content)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.content)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.content)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.content)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.timeCreate)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.timeCreate)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.timeCreate)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.timeCreate)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.lastMod)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.lastMod)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.lastMod)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.lastMod)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.User.fName)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.User.fName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.User.fName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.User.fName)
+            </dd>
 
-    </dl>
+        </dl>*@
+
+    <br />
+    <br />
+
+    <div id="look-good">
+        <table border="0">
+            <tr>
+                <td align="center">
+                    <h1>@Html.DisplayFor(model => model.title)</h1>
+                    <h2>@Html.DisplayFor(model => model.content)</h2>
+                    <h3>@Html.DisplayFor(model => model.timeCreate)</h3>
+                </td>
+            </tr>
+            <tr><td align="center"><hr /></td></tr>
+            <tr>
+                <td align="center">
+                    <h1>@Html.DisplayFor(model => model.User.fName)</h1>
+                </td>
+            </tr>
+            <tr><td align="center"><hr /></td></tr>
+            <tr>
+                <td align="center"><h1>@Html.ActionLink("Forum", "../ForumPosts/Index")</h1></td>
+            </tr>
+            <tr><td align="center"><hr /></td></tr>
+            <tr>
+                <td align="center"><h1>@Html.ActionLink("Blog", "../Blogs/Index")</h1></td>
+            </tr>
+        </table>
+    </div>
+
+
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.blogID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
