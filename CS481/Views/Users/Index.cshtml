@@ -4,6 +4,9 @@
     ViewBag.Title = "Index";
 }
 
+<br />
+<br />
+
 <h2>Index</h2>
 
 <p>
@@ -20,9 +23,9 @@
         <th>
             @Html.DisplayNameFor(model => model.email)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.password)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -37,14 +40,14 @@
         <td>
             @Html.DisplayFor(modelItem => item.email)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.password)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.userId }) |
             @Html.ActionLink("Details", "Details", new { id=item.userId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.userId })
-        </td>
+        </td>*@
     </tr>
 }
 

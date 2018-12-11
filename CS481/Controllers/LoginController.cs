@@ -35,5 +35,12 @@ namespace CS481.Controllers
                 }
             }
         }
+
+        public ActionResult LogOut()
+        {
+            Session.Abandon();
+            return RedirectToAction("Index", "Login");
+        }
+
     }
 }

@@ -16,17 +16,18 @@
 {
     <h2></h2>
     <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-        <div class="card-header">
+        @*<div class="card-header">
             <aside>
                 @Html.DisplayFor(modelItem => item.score)
             </aside>
-        </div>
+        </div>*@
         <div class="card-body">
             <h4 class="card-title">@Html.DisplayFor(modelItem => item.title)</h4>
             <p class="card-text">@Html.DisplayFor(modelItem => item.content)</p>
             @Html.ActionLink("Comments", "../ForumComments/Index", new { id = item.postID })
             <br />
             @Html.DisplayFor(modelItem => item.timeCreate)
+            @Html.ActionLink("Delete", "Delete", new { id = item.postID })
         </div>
     </div>
         

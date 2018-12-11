@@ -19,10 +19,10 @@
     <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
         <div class="card-body">
             <h4 class="card-title">@Html.DisplayFor(modelItem => item.title)</h4>
-            <p class="card-text">Posted By: @Html.DisplayFor(modelItem => item.User.fName) @Html.DisplayFor(modelItem => item.User.lName)</p>
+            @*<p class="card-text">Posted By: @Html.DisplayFor(modelItem => item.User.fName) @Html.DisplayFor(modelItem => item.User.lName)</p>*@
             <p class="card-text">@Html.DisplayFor(modelItem => item.content)</p>
             <br />
-            Last Modified:  @Html.DisplayFor(modelItem => item.lastMod)
+            @*Last Modified:  @Html.DisplayFor(modelItem => item.lastMod)*@
             @Html.DisplayFor(modelItem => item.timeCreate)
         </div>
     </div>
