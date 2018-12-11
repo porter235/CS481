@@ -29,12 +29,12 @@
         </th>
         <th></th>
     </tr>*@
+<h3></h3>
 
 @foreach (var item in Model) {
     if (ViewBag.id == item.postID) {
         <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
             <div class="card-body">
-                <h4 class="card-title">@Html.DisplayFor(modelItem => item.ForumPost.title)</h4>
                 <p class="card-text">@Html.DisplayFor(modelItem => item.content)</p>
                 <br />
                 @Html.DisplayFor(modelItem => item.timeCreate)
