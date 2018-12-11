@@ -20,7 +20,6 @@
         <div class="card-body">
             <h4 class="card-title">@Html.DisplayFor(modelItem => item.title)</h4>
             @*<p class="card-text">Posted By: @Html.DisplayFor(modelItem => item.User.fName) @Html.DisplayFor(modelItem => item.User.lName)</p>*@
-            <p class="card-text">@Html.DisplayFor(modelItem => item.content)</p>
             - @Html.DisplayFor(modelItem => item.User.fName)
             <br />
             @Html.ActionLink("Details", "Details", new { id = item.blogID }) |
